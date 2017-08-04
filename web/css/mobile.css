@@ -1,0 +1,19 @@
+/*@CHARSET "UTF-8";*/
+body {
+	background-color:#eeeeee;
+	margin:0;
+	padding:0
+}
+div#container {
+    margin: 0 auto;
+}
+div#menu {
+    display: block;
+}
+div#content {
+    display: block;
+}
+div#tag {
+    display: inline;
+    min-height: 40px;
+}

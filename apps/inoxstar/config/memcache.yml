@@ -1,0 +1,7 @@
+active: on
+expiration: 86400 #expiration in seconds (24h)
+ servers:
+   1:
+     host: 127.0.0.1
+     port: 11211
+     persistent: false

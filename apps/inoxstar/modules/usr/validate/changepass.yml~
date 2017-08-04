@@ -1,0 +1,15 @@
+fields:
+  newpass:
+    group:           password_group
+  cnfpass:
+    group:           password_group
+    sfCompareValidator:
+      check:         newpass
+      compare_error: A nova senha e a confirma&ccedil;&atilde;o diferem
+      
+passwordValidator:
+  class:          sfRegexValidator
+  param:
+    pattern:      /(.{6}[0-9][a-z]](.{1}[\@\!\._\-\&\%]))/i
+    match_error:  'A senha deve conter no m&iacute;nimo 6 caracteres com letras 
+        e numeros' 

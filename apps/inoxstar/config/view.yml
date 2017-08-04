@@ -1,0 +1,17 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        INOXPAR - A parceria ideal
+    description:  Parafusos e Acess&oacute;rios em Geral
+    keywords:     inoxpar, parafusos, acess&oacute;rios, loja virtual
+    language:     pt
+    robots:       index, follow
+
+  stylesheets:    [main]
+
+  javascripts:    []
+
+  has_layout:     on
+  layout:         layout

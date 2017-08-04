@@ -1,0 +1,19 @@
+prod:
+  enabled: on
+  level: notice
+  rotate: on
+  period: 7
+  history: 10
+  purge:  off
+
+dev:
+  enabled: on
+  level:  debug
+
+test:
+  enabled: on
+  level:  debug
+
+all:
+#  enabled: on
+#  level:  debug

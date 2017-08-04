@@ -1,0 +1,11 @@
+default:
+  stylesheets:    off
+  javascripts:    off
+
+  has_layout:     on
+  layout:         homeLayout
+
+all:
+  metas:
+    title:
+

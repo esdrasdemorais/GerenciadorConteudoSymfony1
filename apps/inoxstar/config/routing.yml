@@ -1,0 +1,44 @@
+# default rules
+homepage:
+  url:   /
+  param: { module: default, action: index }
+
+home_category:
+  url:   /categoria/:category/:page.html
+  param: { module: default, action: showProducts }
+
+home_tag:
+  url:   /tag/:tag/:page.html
+  param: { module: default, action: showProducts }
+
+#home_products:
+#  url:    /produtos/index.html
+#  param { module: default, action: showProducts }
+
+#home_contact:
+#  url:   /contato.html
+#  param: { module: default, action: contact }
+
+index_usr_mnt:
+  url:	 index_usr_mnt
+  param: { module: usr, action: index }
+
+home_usr:
+  url:   /home_usr_mnt
+  param: { module: usr, action: showHome }
+
+default_symfony:
+  url:   /usr/:action/*
+  param: { module: usr }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*
+
+sf_captcha:
+  url:   /captcha
+  param: { module: sfCaptcha, action: index }
+

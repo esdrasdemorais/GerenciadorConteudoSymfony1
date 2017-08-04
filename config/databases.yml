@@ -1,0 +1,31 @@
+all:
+  propel:
+    class: sfPropelDatabase
+    param:
+      #dsn: 'mysql:dbname=_InoX_StaR__;host=localhost'
+      #username: inoxstar
+      #password: 1234567
+      dsn: mysql://inoxstar:1234567@localhost/_InoX_StaR__
+      encoding: utf8
+      persistent: false
+      pooling: false
+      classname: PropelPDO
+debug:
+  realmemoryusage: true
+  details:
+    time:
+      enabled: true
+    slow:
+      enabled: true
+      threshold: 0.001
+    memdelta:
+      enabled: true
+    mempeak:
+      enabled: true
+    method:
+      enabled: true
+    mem:
+      enabled: true
+    querycount:
+      enabled: true
+

@@ -1,0 +1,58 @@
+propel:
+  _attributes:
+    package: lib.model
+  ct_inox_star_:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    nam: { type: VARCHAR, size: '255', required: true }
+    en: { type: CHAR, size: '1', default: '0' }
+    par: { type: INTEGER }
+    _uniques: { nam_ct_U: [nam] }
+  pr_ct_inox_star_:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    pr_id: { type: INTEGER, required: true, foreignTable: pr_inox_star_, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    ct_id: { type: INTEGER, required: true, foreignTable: ct_inox_star_, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    _indexes: { pr_ct_ct_id_FK: [ct_id] }
+    _uniques: { pr_id_ct_id_pr_ct_U: [pr_id, ct_id] }
+  pr_inox_star_:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    nam: { type: VARCHAR, size: '255', required: true }
+    price: { type: FLOAT }
+    us_id: { type: INTEGER, required: true, foreignTable: us_inox_star_, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    en: { type: CHAR, size: '1', default: '0' }
+    descr: { type: LONGVARCHAR }
+    _indexes: { pr_us_id_FK: [us_id] }
+    _uniques: { nam_pr_U: [nam] }
+  pr_ph_inox_star_:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    pr_id: { type: INTEGER, required: true, foreignTable: pr_inox_star_, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    nam: { type: VARCHAR, size: '170', required: true }
+    ext: { type: VARCHAR, size: '4', required: true }
+    typ: { type: VARCHAR, size: '10', required: true }
+    _indexes: { pr_ph_pr_id_FK: [pr_id] }
+    _uniques: { nam_pr_ph_U: [nam] }
+  pr_tg_inox_star_:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    pr_id: { type: INTEGER, required: true, foreignTable: pr_inox_star_, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    tg_id: { type: INTEGER, required: true, foreignTable: tg_inox_star_, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    _indexes: { pr_tg_tg_id_FK: [tg_id] }
+    _uniques: { pr_id_td_id_pr_tg_U: [pr_id, tg_id] }
+  tg_inox_star_:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    nam: { type: VARCHAR, size: '255', required: true }
+    en: { type: CHAR, size: '1', default: '0' }
+    _uniques: { nam_us_U: [nam] }
+  us_inox_star_:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    nam: { type: VARCHAR, size: '170', required: true }
+    pas: { type: VARCHAR, size: '70', required: true }
+    en: { type: CHAR, size: '1', default: '0' }
+    admin: { type: CHAR, size: '1', default: '0' }
+    sal: { type: VARCHAR, size: '70', required: true }
+    _uniques: { nam_us_U: [nam] }

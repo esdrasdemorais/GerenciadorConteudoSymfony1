@@ -1,0 +1,69 @@
+# default values
+#all:
+
+mnt_menu:
+ .array:
+   0 :
+    name     : Produto
+    children : [Novo : product/new, Listar : product/list]
+   1 :
+    name	 : Categoria
+    children : [Nova : category/new, Listar : category/list]
+   2 :
+    name	 : Tag
+    children : [Nova : tag/new, Listar : tag/list]
+   3 :
+    name	 : Usu&aacute;rio
+    children : [Novo : usr/new, Listar : usr/list, Alter Senha : usr/alterpass]
+   4 :
+    name 	 : Sair  
+    url		 : usr/logout
+
+web_menu:
+ .array:
+   0 : 
+    name : Home
+    url  : /
+   1 :
+    name : Produtos
+    url  : /product/index
+    
+all:
+  .array:
+    srv_ip:
+     [192.168.1.2, localhost]
+  menus:
+    mnt_menu:
+      name:     Produtos
+      children:
+        novo_produto:
+          label:   Novo
+          route:   @sf_guard_novo_produto
+          requires_no_auth: true
+          attributes: {class: signin }
+        signout:
+          label:   Sign out
+          route:   @sf_guard_signout
+          requires_auth: true
+        user_admin:
+          label:          User Admin
+          requires_auth: true
+          children:
+            manage_users:
+              label:   Manage Users
+              route:   @sf_guard_user
+              credentials: [ManageUsers]
+            manage_permissions:
+              label:   Manage Permissions
+              route:   @sf_guard_permission
+              credentials: [ManagePermissions]
+      name:      Categorias
+    web_menu:
+      home:
+        label:   Home
+        route:   @sf_guard_home
+        requires_no_auth: true  
+      produtos:
+        label:   Produtos
+        route:   @sf_guard_home_produtos
+        requires_no_auth: true     
